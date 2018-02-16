@@ -91,21 +91,15 @@ function showPosition(position) {
 	          let day = days[date.getDay()];
 	          console.log(day);
 	          $('#weekAll').append(
-	          	` <div class="col s6 white-text">
-                                    <table>
-                                    <tbody>
-                                    <tr>
-                                    <td><canvas class="" id="${week[i].icon}" width="10" height="10"></canvas> ${day}</td>
-                                    <td><i class="Tiny material-icons" style="font-size: 18px;">arrow_downward</i>
-                                    ${Math.floor(week[i].temperatureMin)}°c
-                                   <i class="Tiny material-icons" style="font-size: 18px;">arrow_upward</i>
-                                    ${Math.floor(week[i].temperatureMax)}°c
-                                    </td>
-                                    </tr>
-                                    </div>`
+				`  
+                    <div class="col s4 offset-s1">${day}</div>
+                    <div class="col s2 offset-s1"><i class="tiny material-icons">arrow_downward</i>${Math.floor(week[i].temperatureMin)}°c  - </div>
+                    <div class="col s2 offset-s2"><i class="tiny material-icons">arrow_upward</i>${Math.floor(week[i].temperatureMax)}°c</div> 
+
+				`
 	          );
 	     const skycons = new Skycons({
-        'color': 'green',
+        'color': 'white',
       });
       skycons.add(`${week[i].icon}`, `${week[i].icon}`);
       skycons.play();
