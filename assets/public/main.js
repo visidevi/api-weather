@@ -93,7 +93,7 @@ function showPosition(position) {
 	          $('#weekAll').append(
 				`  
                     <div class="col s4 offset-s1">${day}</div>
-                    <div class="col s2 offset-s1"><i class="tiny material-icons">arrow_downward</i>${Math.floor(week[i].temperatureMin)}°c  - </div>
+                    <div class="col s2 offset-s1"><i class="tiny material-icons">arrow_downward</i>${Math.floor(week[i].temperatureMin)}°c </div>
                     <div class="col s2 offset-s2"><i class="tiny material-icons">arrow_upward</i>${Math.floor(week[i].temperatureMax)}°c</div> 
 
 				`
