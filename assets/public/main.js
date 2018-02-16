@@ -18,6 +18,7 @@ randombg();
   }
 })();
 
+
 function showPosition(position) {
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
@@ -32,15 +33,26 @@ function showPosition(position) {
       $('#temp-container').append(
       	` <div class="white-text">
       	<h2>Santiago</h2>
-      	<canvas class="clear-day" width="300"></canvas>
-      	<table>
+      	<canvas id="ico" width="300"></canvas>
+      	<h1>${Math.floor(data.currently.temperature)}°C</h1>
+      	
+      	<table class="center-aling">
         <thead>
           <tr>
               <th>Temperatura</th>
+              <td>Viento</td>
+              <td>Humedad</td>
+              <td>Indic Uv</td>
+              <td>Presión</td>
+          </tr>
+            <tr>
               <th>${Math.floor(data.currently.temperature)}°</th>
+              <td>${data.currently.windSpeed}</td>
+              <td>${data.currently.windSpeed}</td>
+              <td>${data.currently.uvIndex}</td>
+              <td>${data.currently.pressure}</td>
           </tr>
         </thead>
-
         <tbody>
           <tr>
             <td>Viento</td>
@@ -60,5 +72,10 @@ function showPosition(position) {
         </tbody>
        </table>`
       	);
+       const skycons = new Skycons({ 
+        'color': '#f9fbe7',
+      });
+      skycons.add("ico", `${data.currently.icon}`);
+      skycons.play();
     });
 };
