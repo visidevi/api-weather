@@ -10,3 +10,4 @@ function randombg() {
   document.getElementById('random').style.backgroundImage = bigSize[random];
 }
 randombg();
+
