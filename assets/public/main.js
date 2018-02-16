@@ -10,21 +10,6 @@ function randombg() {
   document.getElementById('random').style.backgroundImage = bigSize[random];
 }
 randombg();
-function getLocation() {
-    if (navigator.geolocation) {        
-        navigator.geolocation.getCurrentPosition(showPosition);
-        console.log(getCurrentPosition());
-    } else {
-        alert('Tu navegador no soporta geolocalizacion');
-    }
-  
-}
-function showPosition(position) {
-    const coords = `https://api.darksky.net/forecast/10dab22d21d6e22b3182546855456e74/${position.coords.latitude},${position.coords.longitude}?units=auto`;  
-    console.log(coords); 
-    getWeather(coords);
-}
-console.log(getLocation());
 (function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
@@ -44,5 +29,17 @@ function showPosition(position) {
     })
     .then(function(data) {
       console.log(data);  
+      $('#temp-container').append(
+      	` <div class="white-text">
+      	<h2 class="">Santiago</h2>
+      	<canvas class="clear-day" width="300"></canvas>
+      	<p>Temperatura = ${Math.floor(data.currently.temperature)}°,
+      		Viento = ${data.currently.windSpeed},
+      		Humedad = ${data.currently.humidity},
+      		Indice Uv = ${data.currently.uvIndex},
+      		Presión = ${data.currently.pressure} </p>
+      		<canvas class="' + skiconsCurrent + '"></canvas>
+      		 <a href="" class="btn waves-effect waves-light white black-text pulse">Recargar</a>`
+      	);
     });
 };
