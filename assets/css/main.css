@@ -9,7 +9,7 @@ body{
   border: 1px solid black;
   
   /* ENHANCEMENT */
-  background-image: url('./assets/img/city2.jpg');
+  background-image: url('../img/city2.jpg');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;  
@@ -17,4 +17,8 @@ body{
 #temp-container{
   background-color: rgba(0,0,0,0.8);
   height: 100vh;
+}
+canvas{
+  margin:0;
+  padding: 0;
 }

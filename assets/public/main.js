@@ -30,10 +30,10 @@ function showPosition(position) {
     })
     .then(function(data) {
       console.log(data);  
-      $('#temp-container').append(
+      $('#dayAll').append(
       	` <div class="white-text">
-      	<h2>Santiago</h2>
-      	<canvas id="ico" width="300"></canvas>
+      	<h3>Santiago</h3>
+      	<canvas id="ico" width="20" height="20"></canvas>
       	<h1>${Math.floor(data.currently.temperature)}°C</h1>
       	
       	<table class="center-aling">
@@ -53,40 +53,64 @@ function showPosition(position) {
               <td>${data.currently.pressure}</td>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>Viento</td>
-            <td>${data.currently.windSpeed}</td>
-          </tr>
-          <tr>
-            <td>Humedad</td>
-            <td>${data.currently.humidity}</td>
-          </tr>
-          <tr>
-          	<td>Indic Uv</td>
-          	<td>${data.currently.uvIndex}</td>
- 		</tr>
-            <td>Presión</td>
-            <td>${data.currently.pressure}</td>
-          </tr>
-        </tbody>
-       </table>`
+       </table> 
+       `
       	);
        const skycons = new Skycons({ 
-        'color': '#f9fbe7',
+        'color': 'white',
       });
       skycons.add("ico", `${data.currently.icon}`);
       skycons.play();
+      timeW();
 
       //console.log(data.daily.data)
-      let week = data.daily.data;
-      console.log(week);
-      for (let i = 7; i < week.length; i++) {
-      	let day = week[i].time;
-      	let getDate = new Date(day * 1000);
-      	//let dayOfW = getDate.split('');
-      	console.log(JSON.stringify(getDate));
-      	console.log(Object.keys(JSON.stringify(getDate)));
-      }
+     
+      // for (let i = 7; i < week.length; i++) {
+      // 	let dayyy = week[i].time;
+      // 	let getDate = new Date(day * 1000);
+      // 	//let dayOfW = getDate.split('');
+      // 	console.log(JSON.stringify(getDate));
+      // 	console.log(Object.keys(JSON.stringify(getDate)));
+
+
+	     function timeW() {
+	     	let days = [
+	          "Sunday",
+	          "Monday",
+	          "Tuesday",
+	          "Wednesday",
+	          "Thursday",
+	          "Friday",
+	          "Saturday"
+	        ];
+
+	        let week = data.daily.data;
+	        console.log(week);
+	        for (let i in week) {
+	          let date = new Date(week[i].time * 1000);
+	          let day = days[date.getDay()];
+	          console.log(day);
+	          $('#weekAll').append(
+	          	` <div class="col s6 white-text">
+                                    <table>
+                                    <tbody>
+                                    <tr>
+                                    <td><canvas id="${week[i].icon}" width="10" height="10"></canvas> ${day}</td>
+                                    <td>hola
+                                    ${Math.floor(week[i].temperatureMin)}°c 
+                                   hola
+                                    ${Math.floor(week[i].temperatureMax)}°c 
+                                    </td>
+                                    </tr>
+                                    </div>`
+	          );
+	     const skycons = new Skycons({ 
+        'color': 'green',
+      });
+      skycons.add(`${week[i].icon}`, `${week[i].icon}`);
+      skycons.play();
+
+	    }
+	  }
     });
 };
