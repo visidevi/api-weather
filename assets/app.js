@@ -18,8 +18,8 @@ app.use(morgan('dev'));
 
 // routes (aqui añadimos todas las rutas de nuestra aplicacion)
 
-app.use(require('./routes/index')); 
-// static files 
+app.use(require('./routes/index'));
+// static files
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -33,7 +33,7 @@ app.use((req, res) =>{
   res.status(404).end('404 La ruta que ingresaste no fue encontrada, 404 not found');
 });
 
-// statics files Que podemos enviar al navegador 
+// statics files Que podemos enviar al navegador
 //que el servirdor conosca las carpetas
 app.use(express.static(path.join(__dirname, 'public'))); // El metodo path concatena directiros para obtener la ruta correcta
 
