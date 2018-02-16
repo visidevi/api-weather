@@ -31,15 +31,38 @@ function showPosition(position) {
       console.log(data);  
       $('#temp-container').append(
       	` <div class="white-text">
-      	<h2 class="">Santiago</h2>
+      	<h2>Santiago</h2>
       	<canvas class="clear-day" width="300"></canvas>
+      	<table>
+        <thead>
+          <tr>
+              <th>Temperatura</th>
+              <th>${Math.floor(data.currently.temperature)}°</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Viento</td>
+            <td>Humedad</td>
+            <td>Indic Uv</td>
+            <td>Presión</td>
+          </tr>
+          <tr>
+            <td>${data.currently.windSpeed}</td>
+            <td>${data.currently.humidity}</td>
+            <td>${data.currently.uvIndex}</td>
+            <td>${data.currently.pressure}</td>
+          </tr>
+        </tbody>
+       </table>
       	<p>Temperatura = ${Math.floor(data.currently.temperature)}°,
       		Viento = ${data.currently.windSpeed},
       		Humedad = ${data.currently.humidity},
       		Indice Uv = ${data.currently.uvIndex},
-      		Presión = ${data.currently.pressure} </p>
+      		Presión = </p>
       		<canvas class="' + skiconsCurrent + '"></canvas>
-      		 <a href="" class="btn waves-effect waves-light white black-text pulse">Recargar</a>`
+      		 <a href="" class="btn waves-effect waves-light white black-text pulse">D</a>`
       	);
     });
 };
