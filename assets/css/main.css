@@ -1,0 +1,16 @@
+body{
+	font-family: 'Lato', sans-serif ;
+}
+
+#random{
+  /* BOX MODEL */
+  width: 100%;
+  height: 100vh;
+  border: 1px solid black;
+  
+  /* ENHANCEMENT */
+  background-image: url('./assets/img/city2.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;  
+}
