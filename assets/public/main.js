@@ -95,16 +95,16 @@ function showPosition(position) {
                                     <table>
                                     <tbody>
                                     <tr>
-                                    <td><canvas id="${week[i].icon}" width="10" height="10"></canvas> ${day}</td>
-                                    <td>hola
-                                    ${Math.floor(week[i].temperatureMin)}°c 
-                                   hola
-                                    ${Math.floor(week[i].temperatureMax)}°c 
+                                    <td><canvas class="" id="${week[i].icon}" width="10" height="10"></canvas> ${day}</td>
+                                    <td><i class="Tiny material-icons" style="font-size: 18px;">arrow_downward</i>
+                                    ${Math.floor(week[i].temperatureMin)}°c
+                                   <i class="Tiny material-icons" style="font-size: 18px;">arrow_upward</i>
+                                    ${Math.floor(week[i].temperatureMax)}°c
                                     </td>
                                     </tr>
                                     </div>`
 	          );
-	     const skycons = new Skycons({ 
+	     const skycons = new Skycons({
         'color': 'green',
       });
       skycons.add(`${week[i].icon}`, `${week[i].icon}`);
