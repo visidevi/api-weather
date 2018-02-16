@@ -44,25 +44,21 @@ function showPosition(position) {
         <tbody>
           <tr>
             <td>Viento</td>
-            <td>Humedad</td>
-            <td>Indic Uv</td>
-            <td>Presión</td>
+            <td>${data.currently.windSpeed}</td>
           </tr>
           <tr>
-            <td>${data.currently.windSpeed}</td>
+            <td>Humedad</td>
             <td>${data.currently.humidity}</td>
-            <td>${data.currently.uvIndex}</td>
+          </tr>
+          <tr>
+          	<td>Indic Uv</td>
+          	<td>${data.currently.uvIndex}</td>
+ 		</tr>
+            <td>Presión</td>
             <td>${data.currently.pressure}</td>
           </tr>
         </tbody>
-       </table>
-      	<p>Temperatura = ${Math.floor(data.currently.temperature)}°,
-      		Viento = ${data.currently.windSpeed},
-      		Humedad = ${data.currently.humidity},
-      		Indice Uv = ${data.currently.uvIndex},
-      		Presión = </p>
-      		<canvas class="' + skiconsCurrent + '"></canvas>
-      		 <a href="" class="btn waves-effect waves-light white black-text pulse">D</a>`
+       </table>`
       	);
     });
 };
