@@ -77,5 +77,16 @@ function showPosition(position) {
       });
       skycons.add("ico", `${data.currently.icon}`);
       skycons.play();
+
+      //console.log(data.daily.data)
+      let week = data.daily.data;
+      console.log(week);
+      for (let i = 7; i < week.length; i++) {
+      	let day = week[i].time;
+      	let getDate = new Date(day * 1000);
+      	//let dayOfW = getDate.split('');
+      	console.log(JSON.stringify(getDate));
+      	console.log(Object.keys(JSON.stringify(getDate)));
+      }
     });
 };
