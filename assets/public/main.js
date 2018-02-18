@@ -31,33 +31,37 @@ function showPosition(position) {
     .then(function(data) {
       console.log(data);  
       $('#dayAll').append(
-      	` <div class="white-text">
+      	` <div class="white-text ">
       	<h3>Santiago</h3>
-      	<canvas id="ico" width="20" height="20"></canvas>
+      	<canvas id="ico" width="50" height="50"></canvas>
       	<h1>${Math.floor(data.currently.temperature)}°C</h1>
       	
-      	<table class="center-aling">
+      	<table class="centered responsive-table ">
         <thead>
           <tr>
               <th>Temperatura</th>
-              <td>Viento</td>
-              <td>Humedad</td>
-              <td>Indic Uv</td>
-              <td>Presión</td>
-          </tr>
+              <th>Viento</th>
+              <th>Humedad</th>
+              <th>Indic Uv</th>
+              <th>Presión</th>
+          </tr> 
+       </thead>
+        <tbody>
             <tr>
-              <th>${Math.floor(data.currently.temperature)}°</th>
+              <td>${Math.floor(data.currently.temperature)}°</td>
               <td>${data.currently.windSpeed}</td>
               <td>${data.currently.windSpeed}</td>
               <td>${data.currently.uvIndex}</td>
               <td>${data.currently.pressure}</td>
           </tr>
-        </thead>
+        </tbody>
+         <hr>
        </table> 
+        <hr>
        `
       	);
        const skycons = new Skycons({ 
-        'color': 'white',
+        'color': '#fafafa',
       });
       skycons.add("ico", `${data.currently.icon}`);
       skycons.play();
@@ -85,26 +89,38 @@ function showPosition(position) {
 	        ];
 
 	        let week = data.daily.data;
-	        console.log(week);
+	        //console.log(week);
 	        for (let i in week) {
 	          let date = new Date(week[i].time * 1000);
 	          let day = days[date.getDay()];
-	          console.log(day);
-	          $('#weekAll').append(
-				`  
-                    <div class="col s4 offset-s1">${day}</div>
-                    <div class="col s2 offset-s1"><i class="tiny material-icons">arrow_downward</i>${Math.floor(week[i].temperatureMin)}°c </div>
-                    <div class="col s2 offset-s2"><i class="tiny material-icons">arrow_upward</i>${Math.floor(week[i].temperatureMax)}°c</div> 
+	          //console.log(day);
+            const skycons = new Skycons({
+            'color': '#fafafa',
+          });
+          icon = week[i].icon;
+          
+          
+	          $('#weekAll').append(`
+              <table class="centered responsive-table ">
+              <tbody> 
+              <tr>
+              
+              <th></th>
+              <td><canvas id="icon${[i]}" width="20" height="20"></canvas></td>
+              <th>${day}</td>
+              <td class="white-text"><i class="tiny material-icons white-text">arrow_downward</i>${Math.floor(week[i].temperatureMin)}°c </td>
+               <td class="white-text"><i class="tiny material-icons white-text">arrow_upward</i>${Math.floor(week[i].temperatureMax)}°c </td>
+          </tr></tbody></table> `
 
-				`
+
+              // <div class="col s4 "></div>
+              //       <div class="col s4 "></div>
+              //       <div class="col s2 "></div>
+              //       <div class="col s2"></div>`
 	          );
-	     const skycons = new Skycons({
-        'color': 'white',
-      });
-      skycons.add(`${week[i].icon}`, `${week[i].icon}`);
-      skycons.play();
-
+          skycons.add(`icon${[i]}`, icon );
 	    }
+  skycons.play();
 	  }
     });
 };
