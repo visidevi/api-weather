@@ -10,7 +10,8 @@ Practicar, dominio de  APIs
 
 -Es6 Fetch: Para llamar la api
 -Dark Sky API
-Nuestra pagina se visualiza asi:
+
+###Nuestra pagina se visualiza asi:
 
 
 ![Texto alternativo]("Vivi poner imgen que envie al wapp").
